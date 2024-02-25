@@ -1,0 +1,928 @@
+@charset "UTF-8";
+/* ほぼ共通 */
+li {
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+.more{
+    width: 200px;
+    height: 54px;
+    border-radius: 50px;
+    background: linear-gradient(to right, #7633A4, #250D65);
+}
+.more a{
+    color: #FFFFFF;
+    text-align: center;
+    display: block;
+    padding-top: 18px;
+    font-family: "Montserrat",sans-serif;
+    font-size: 14px;
+    font-weight: Bold;
+}
+
+
+
+/*header*/
+
+header {
+    position: fixed;
+    object-fit: cover;
+    top: 0;
+    z-index: 10;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4%;
+    height: 86px;
+    transition: all 0.5s;
+}
+
+header ul {
+    display: flex;
+}
+
+header ul li {
+    font-size: 1.4rem;
+    margin-left: 25px;
+}
+
+header ul li a {
+    color: white;
+    position: relative;
+    font-family: "Montserrat",sans-serif; 
+    font-size: 14px;
+    font-weight: bold;
+}
+
+header ul li a:hover {
+    color: white;
+}
+
+header ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background:white;
+    transition: all .3s;
+    transform: scale(0, 1);
+    transform-origin: left top;
+}
+
+header ul li a:hover::after {
+    transform: scale(1, 1);
+}
+
+.transform{
+    background-image: url(../IMG/header.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 64px;
+}
+
+/* ハンバーガーメニュー */
+.burger {
+    position: fixed;
+    top: 12px;
+    right: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 200;
+}
+
+.burger div {
+    width: 32px;
+    height: 2px;
+    background-color: white;
+    margin: 8px;
+}
+
+.open .line1 {
+    transform: rotate(-45deg) translate(-8px, 6px);
+}
+
+.open .line2 {
+    opacity: 0;
+}
+
+.open .line3 {
+    transform: rotate(45deg) translate(-8px, -6px);
+}
+
+/* header-modal (スマホ用)*/
+.header-modal-wrapper{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../IMG/modal.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: 100;
+    color: white;
+    text-align: center;
+    display: none;
+}
+
+.header-modal-wrapper ul {
+    padding-top: 300px;
+}
+
+.header-modal-wrapper ul li {
+    padding-bottom: 20px;
+}
+
+.header-modal-wrapper ul li a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+/*スクロールダウン全体の場所*/
+.scrolldown1{
+	position:absolute;
+	right:3%;
+	bottom:0;
+    /*全体の高さ*/
+	height:148px;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown1 span{
+	position: absolute;
+    transform: rotate(90deg);
+	left:-18px;
+	top: -22px;
+	color: #eee;
+	font-size: 1.2rem;
+    font-weight: 300;
+	letter-spacing: 0.05em;
+}
+
+/* 線の描写 */
+.scrolldown1::after{
+	content: "";
+    /*描画位置*/
+	position: absolute;
+	top: 0;
+    /*線の形状*/
+	width: 1px;
+	height: 80px;
+	background: #eee;
+    /*線の動き1.4秒かけて動く。永遠にループ*/
+	animation: pathmove 1.4s ease-in-out infinite;
+	opacity:0;
+}
+
+/*高さ・位置・透過が変化して線が上から下に動く*/
+@keyframes pathmove{
+	0%{
+		height:0;
+		top:0;
+		opacity: 0;
+	}
+	30%{
+		height:50px;
+		opacity: 1;
+	}
+	100%{
+		height:0;
+		top:80px;
+		opacity: 0;
+	}
+}
+
+
+
+
+
+/* top-wrapper */
+.top-wrapper {
+    background-image: url(../img/hero.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    text-align: center;
+}
+
+.top-wrapper h1 {
+    font-size: 72px;
+    font-family: "Montserrat",sans-serif; 
+    padding-top: 265px;
+}
+
+.top-wrapper h3 {
+    font-size: 24px;
+    font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+    padding-top: 20px;
+}
+.top-wrapper .contact{
+    width: 220px;
+    height: 55px;
+    border-radius: 50px;
+    border: #FFFFFF solid;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+.top-wrapper .contact a{
+    color:#FFFFFF ;
+    font-family: "Montserrat"; 
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* second */
+.second{
+    height: auto;
+    display: flex;
+    width: 917px;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+.NEWS{
+    margin-right: 50px;
+}
+.second h2{
+    font-family: "Montserrat",sans-serif; 
+    font-size: 36px;
+    font-weight: bold;
+    color: #391E88;
+}
+.second h5{
+    font-family: "ヒラギノ角ゴシック";
+    font-size: 13px;
+    font-weight: 600;
+    color: #391E88;
+    padding-top: 5px;
+}
+.second-wrapper{
+    width: 747px;
+}
+.gap{
+    display: flex;
+}
+.res{
+    display: flex;
+}
+.second .mon{
+    font-family: "Montserrat"; 
+    font-size: 15px;
+    font-weight: normal;
+    padding-bottom: 18px;
+    padding-right: 20px;
+}
+.second .res .div-naiyo{
+    height: 22px;
+    width: 82px ;
+    background-color: #E8E8E8;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+.second .res .div-naiyo .naiyo{
+    font-family: "Montserrat"; 
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 5px;
+    text-align: center;
+}
+.second .hira{
+    font-family: "ヒラギノ角ゴシック";
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    width: 703px;
+}
+
+
+
+/* third */
+.third h2{
+    text-align: center;
+    font-family: "Montserrat",sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    color: #391E88;
+
+}
+.third h3{
+    text-align: center;
+    color: #391E88;
+    font-size: 13px;
+    font-family: "ヒラギノ角ゴシック",sans-serif;
+    padding-top: 5px;
+}
+.third{
+    width: 1110px;
+    height: 501px;
+    margin: 0 auto;
+    margin-bottom: 140px;
+    margin-top: 140px;
+}
+.third .third-wrapper{
+    display: flex;
+    margin-top: 30px;
+}
+.third-wrapper div{
+    width: 33.33%;
+}
+.third-wrapper h6{
+    font-family: "Montserrat",sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 24px;
+}
+.third-wrapper p{
+    padding-top: 17px;
+    width: 350px;
+}
+.third .more{
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+
+
+/* forth */
+.forth{
+    width: 1261px;
+    height: 651px;
+    margin: 140px auto 0;
+    position: relative;
+}
+.forth .forth-wrapper{
+    width:837px;
+    height:651px;
+    background-color: #F0F0F0;
+    margin-left: 424px;
+}
+.forth img{
+    width: 750px;
+    height: 510px;
+    position: absolute;
+    top: 60px;
+}
+.forth h5{
+    font-family: "Montserrat",sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #391E88;
+    padding-top: 213px;
+    padding-left: 484px;
+    letter-spacing: 0.05em;
+}
+.forth h6{
+    font-family: "ヒラギノ角ゴシック";
+    font-size: 14px;
+    font-weight: 600;
+    color: #391E88;
+    padding-left: 532px;
+    padding-top: 5px;
+}
+.forth p{
+    width: 430px;
+    font-family: "ヒラギノ角ゴシック";
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.8em;
+    margin-left: 346px;
+    margin-top: 30px;
+    
+}
+.forth .more{
+    margin-left: 461px;
+    margin-top: 30px;
+}
+
+
+
+
+
+/* fifth */
+.fifth{
+    width: 1300px;
+    height: 615px;
+    margin: 0 auto;
+    background-size: cover;
+    margin-top: 40px;
+}
+.fifth-wrapper{
+    position: relative;
+}
+.fifth-wrapper .bg-circle{
+    height: 615px ;
+    width: 864px;
+    position: absolute;
+    left: 240px;
+}
+.fifth-wrapper h2{
+    text-align: center;
+    padding-top: 136px;
+    font-family: "Montserrat",sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #391E88;
+}
+.fifth-wrapper h3{
+    text-align: center;
+    color: #391E88;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "ヒラギノ角ゴシック",sans-serif;
+    padding-top: 5px;
+}
+.fifth-wrapper h4{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    font-family: "ヒラギノ角ゴシック",sans-serif;
+    color: #333333;
+    letter-spacing: 0.05em;
+    background: linear-gradient(transparent 70%, yellow 30%);
+}
+.fifth-wrapper p{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+    font-family: "ヒラギノ角ゴシック",sans-serif;
+    line-height: 1.8em;
+    padding-top: 46px;
+}
+.fifth-wrapper .bg-face{
+    height: 416px ;
+    width: 1300px;
+    position: absolute;
+    top: 144px;
+}
+.fifth .more{
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+
+
+
+
+
+/* sixth */
+.sixth{
+    display: flex;
+    width: 1110px;
+    height: 332px;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+.sixth img{
+    width: 665px;
+    height: 332px;
+}
+.sixth .left{
+    background-color: #F7F7F7;
+    width: 445px;
+    height: 332px;
+}
+.sixth h2{
+    font-family: "Montserrat"; 
+    font-size: 36px;
+    font-weight: bold;
+    color: #391E88;
+    padding-top: 70px;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+.sixth h3{
+    font-family: "ヒラギノ角ゴシック";
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #391E88;
+    padding-top: 5px;
+}
+.sixth p{
+    text-align: center;
+    font-family: "ヒラギノ角ゴシック";
+    font-size: 15px;
+    font-weight: 300;
+    padding-top: 30px;
+}
+.sixth .more{
+    margin-top: 30px;
+    margin: 30px auto 0;
+}
+
+
+
+
+
+
+
+
+/* seventh */
+.seventh{
+    background-color: #F7F7F7;
+    width: 100vw;
+    height: 356px;
+    margin-top: 110px;
+}
+.seventh h2{
+    text-align: center;
+    padding-top: 80px;
+    font-family: "Montserrat"; 
+    font-size: 34px;
+    font-weight: bold;
+    color: #391E88;
+}
+.seventh h3{
+    text-align: center;
+    font-family: "ヒラギノ角ゴシック";
+    font-size: 14px;
+    font-weight: 600;
+    color: #391E88;
+}
+.seventh p{
+    text-align: center;
+    padding-top: 35px;
+    font-family: "ヒラギノ角ゴシック";
+    font-size: 15px;
+    font-weight: 300;
+}
+.seventh .more{
+    margin: 31px auto 0;
+}
+
+
+/* footer共通 */
+
+footer {
+    width: 100%;
+    height: 173px;
+    background-color: #120E19;
+}
+footer div{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+footer a{
+    font-family: "Montserrat"; 
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding-top: 60px;
+}
+footer p{
+    font-family: "Montserrat"; 
+    font-size: 10px;
+    font-weight: "Regular";
+    color: #A798B7;
+    text-align: center;
+    padding-top: 22px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* headerレスポンシブ */
+.responsive{
+    display: none;
+}
+
+/* レスポンシブ */
+@media (max-width: 400px){
+
+.pc{
+    display: none;
+}
+.responsive{
+    display: block;
+}
+
+
+    /* header */
+    header {
+        height: 64px;
+        transition: 0.5s;
+    }
+
+    header ul {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    /* top-wrapper */
+    .top-wrapper {
+        text-align: left;
+        padding: 0 5.5vw;
+    }
+
+    .top-wrapper h1{
+        font-size: 40px;
+    }
+
+    .top-wrapper h3 {
+        font-size: 16px;
+    }
+
+    .scrolldown1 {
+        right: 5%;
+    }
+    .top-wrapper .contact{
+        margin: 0px;
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+    .top-wrapper .contact a{
+        display: block;
+        text-align: center;
+    }
+
+
+
+
+
+/* second */
+.second{
+    display: block;
+    width: 336px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.NEWS{
+    margin-right: 0px;
+}
+.second h2{
+    font-size: 30px;
+    text-align: center;
+}
+.second h5{
+    text-align: center;
+    padding-bottom: 32px;
+}
+.second-wrapper{
+    width: 336px;
+}
+
+.gap{
+    display: block;
+    padding-bottom: 40px;
+}
+.second .mon{
+    padding-bottom: 10px;
+    padding-right: 15px;
+}
+.second .res .div-naiyo{
+    height: 19px;
+}
+.second .res .div-naiyo .naiyo{
+    font-size: 11px;
+    padding-top: 5px;
+    text-align: center;
+}
+.second .hira{
+    font-size: 14px;
+    width: 336px;
+    line-height: 1.92rem;
+} 
+.second .last{
+    padding-bottom: 0px;
+}
+
+
+
+
+
+
+
+
+/* third */
+.third{
+    width: 335px;
+    height: auto;
+}
+.third .third-wrapper{
+    display: block;
+}
+.third-wrapper div{
+    width: 335px;
+    padding-bottom: 40px;
+}
+.third-wrapper img{
+    width: 335px;
+    height: 210px;
+}
+
+
+
+
+
+/* forth */
+.forth{
+    width: 100%;
+    height: 539px;
+    position: relative;
+    margin: 0px;
+}
+
+.forth .forth-wrapper{
+    width:100%;
+    height: 424px;
+    background-color: #F0F0F0;
+    margin-left: 0px;
+    position: relative;
+    top: 115px;
+}
+.forth h5{
+    text-align: center;
+    padding-top: 156px;
+    padding-left: 0px;
+    font-size: 30px;
+}
+.forth h6{
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 0px;
+    font-size: 13px;
+}
+.forth img{
+    width: 335px;
+    height: 231px;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    z-index: 1;
+}
+.forth .forth-wrapper p{
+    font-size: 14px;
+    padding-left: 0px;
+    width: 335px;
+    margin: 0px;
+    margin-right: 0px;
+    margin: 0 auto;
+}
+.forth p{
+    font-family: "ヒラギノ角ゴシック";
+    margin-left: 0px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+.forth .more{
+    margin: 0 auto;
+    margin-top: 30px;
+}
+/* .forth p{
+    width: 430px;
+    font-family: "ヒラギノ角ゴシック";
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.8em;
+    margin-left: 346px;
+    margin-top: 30px;
+} */
+
+
+/* fifth */
+
+.fifth{
+    width: 100%;
+    height: 576px;
+    background-image: url(../img/bg-circle.png);
+    background-size: cover;
+}
+.fifth-wrapper h2{
+    padding-top: 60px;
+    font-size: 30px;
+}
+.fifth-wrapper h3{
+    font-size: 13px;
+    padding-top: 5px;
+}
+.fifth-wrapper h4{
+    font-size: 32px;
+    width: 280px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: linear-gradient(transparent 70%, yellow 30%);
+}
+.fifth-wrapper p{
+    font-size: 14px;
+    padding-top: 43px;
+}
+
+
+
+/* sixth */
+.sixth{
+    width: 100%;
+    display: block;
+    height: 440px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+.sixth img{
+    width: 100%;
+    height: 140px;
+}
+.sixth .left{
+    background-color: #F7F7F7;
+    width: 100%;
+    height: 300px;
+}
+.sixth h2{
+    font-size: 30px;
+    padding-top: 60px;
+}
+.sixth h3{
+    font-size: 13px;
+    padding-top: 6px;
+}
+.sixth p{
+    font-size: 14px;
+}
+
+/* seventh */
+.seventh{
+    margin-top: 80px;
+    height: 328px;
+}
+.seventh p{
+    width: 296px;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0.05;
+}
+.seventh p{
+    margin: 0 auto;
+    padding-top: 35px;
+}
+
+
+
+
+
+/* footer */
+footer{
+    height: 213px;
+}
+footer .responsive{
+    padding-left: 31px;
+}
+footer .responsive a{
+    padding-right: 20px;
+    font-size: 12px;
+}
+footer .footer-top{
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+footer a{
+    padding-top: 0px;
+}
+footer p{
+    padding-top: 30px;
+}
+}
+
+
+
+
+
+
+
